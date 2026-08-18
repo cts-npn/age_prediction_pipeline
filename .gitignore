@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Datasets / generated data
+aligned/
+manifest.csv
+manifest_aligned.csv
+
+# Training outputs
+runs/
+*.pt
+*.pth
+*.onnx
+*.h5
+
+# Model weights (large binaries)
+models/*.task
+
+# Archives
+*.zip
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
