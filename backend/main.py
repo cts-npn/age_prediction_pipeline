@@ -50,6 +50,8 @@ ALLOWED_ORIGINS = os.environ.get(
     "FRONTEND_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173"
 ).split(",")
 
+UPLOAD_DIR.mkdir(exist_ok=True)
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 _ensemble: list[dict] = []
 
@@ -79,7 +81,6 @@ def load_ensemble() -> list[dict]:
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    UPLOAD_DIR.mkdir(exist_ok=True)
     _ensemble.extend(load_ensemble())
     if not _ensemble:
         print("Warning: no model checkpoints loaded — /predict will fail until runs/*/best_model.pt exist.")
