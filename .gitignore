@@ -18,6 +18,11 @@ manifest_aligned.csv
 # Model weights (large binaries)
 models/*.task
 
+# Training artifacts too large for git (keep only best_model.pt + small metrics/plots)
+runs/*/last_checkpoint.pt
+runs/*/comparison_report.csv
+runs/*/test_split.csv
+
 # Backend runtime uploads
 backend/uploads/
 
